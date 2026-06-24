@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), sans-serif;
+  
+  --color-gold-50: #faf8f5;
+  --color-gold-100: #f3edd7;
+  --color-gold-200: #e4d8b2;
+  --color-gold-300: #d1bd83;
+  --color-gold-400: #bc9f57;
+  --color-gold-500: #a78235;
+  --color-gold-600: #8d6928;
+  --color-gold-700: #6f4f1f;
+  --color-gold-800: #543b17;
+  --color-gold-900: #3b2811;
+
+  --color-luxury-charcoal: #121212;
+  --color-luxury-sand: #fbfaf7;
+  
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.97); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Custom Luxury Classes */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass {
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-nav {
+  background: rgba(251, 250, 247, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(167, 130, 53, 0.1);
+}
+
+.dark .glass-nav {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.luxury-text-gradient {
+  background: linear-gradient(135deg, var(--color-gold-600) 0%, var(--color-gold-400) 50%, var(--color-gold-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar for Luxury Experience */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-300);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-gold-700);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-400);
+}
+
+/* Modern Calendar styling overrides globally for high visibility */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+  /* Light mode: uses the highly visible dark grey browser calendar icon, enlarged */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.2); /* Bright white in dark mode for outstanding contrast */
+  opacity: 0.9;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Subtle watermark overlay for demo background images */
+.watermark-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='180' viewBox='0 0 300 180'><text fill='rgba(255,255,255,0.08)' font-size='10' font-family='sans-serif' x='20' y='60' transform='rotate(-20 20 60)'>FOTO INI BISA DIGANTI</text><text fill='rgba(255,255,255,0.08)' font-size='8' font-family='sans-serif' x='25' y='80' transform='rotate(-20 25 80)'>THIS PHOTO CAN BE CHANGED</text></svg>");
+  background-repeat: repeat;
+  z-index: 2;
+}
